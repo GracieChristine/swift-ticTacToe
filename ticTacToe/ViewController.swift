@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     
     @IBAction func action(_ sender: AnyObject) {
         if (gameState[sender.tag-1] == 0) {
+            
+            gameState[sender.tag-1] = activePlayer
+            
             if (activePlayer == 1) {
                 sender.setImage(UIImage(named: "Cross.png"), for: UIControlState());
                 activePlayer = 2;
