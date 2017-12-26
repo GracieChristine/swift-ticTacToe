@@ -9,7 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var activePlayer = 1;
+    
+    @IBAction func action(_ sender: AnyObject) {
+        if (activePlayer == 1) {
+            sender.setImage(UIImage(named: "Cross.png"), for: UIControlState());
+            activePlayer = 2;
+        }
+        else {
+            sender.setImage(UIImage(named: "Nought"), for: UIControlState());
+            activePlayer = 1;
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
