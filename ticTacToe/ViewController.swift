@@ -9,10 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+    // Cross
     var activePlayer = 1;
     var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    
     var winningCombinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
     var gameIsActive = true;
     
@@ -32,9 +31,8 @@ class ViewController: UIViewController {
             }
             else {
                 
-                sender.setImage(UIImage(named: "Nought"), for: UIControlState());
+                sender.setImage(UIImage(named: "Nought.png"), for: UIControlState());
                 activePlayer = 1;
-                
             }
         }
         
@@ -56,8 +54,24 @@ class ViewController: UIViewController {
             }
         }
         
+        gameIsActive = false
+        
+        for i in gameState
+        {
+            if i == 0
+            {
+                gameIsActive = true
+                break
+            }
+        }
+        
+        if gameIsActive == false
+        {
+            label.text = "IT WAS A DRAW"
+            label.isHidden = false
+            playAgainBtn.isHidden = false
+        }
     }
-    
     
     @IBOutlet weak var playAgainBtn: UIButton!
     @IBAction func playAgain(_ sender: AnyObject) {
@@ -65,6 +79,7 @@ class ViewController: UIViewController {
         gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0];
         gameIsActive = true;
         activePlayer = 1;
+        
         playAgainBtn.isHidden = true;
         label.isHidden = true;
         
