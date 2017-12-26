@@ -11,15 +11,18 @@ import UIKit
 class ViewController: UIViewController {
     
     var activePlayer = 1;
+    var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     @IBAction func action(_ sender: AnyObject) {
-        if (activePlayer == 1) {
-            sender.setImage(UIImage(named: "Cross.png"), for: UIControlState());
-            activePlayer = 2;
-        }
-        else {
-            sender.setImage(UIImage(named: "Nought"), for: UIControlState());
-            activePlayer = 1;
+        if (gameState[sender.tag-1] == 0) {
+            if (activePlayer == 1) {
+                sender.setImage(UIImage(named: "Cross.png"), for: UIControlState());
+                activePlayer = 2;
+            }
+            else {
+                sender.setImage(UIImage(named: "Nought"), for: UIControlState());
+                activePlayer = 1;
+            }
         }
     }
     
